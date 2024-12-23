@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mảng chia hết cho 3</title>
+</head>
+<body>
+
+<script>
+    let n = parseInt(prompt("Nhập số lượng phân tư của mảng"));
+    if (! Number.isInteger(n) || n <= 0 || n > 50 ) {
+        alert("Số phần tử phải là số dương và không vượt quá 50!");
+    } else {
+       const arr = [] ;
+       for (let i = 0; i < n; i ++ ){
+           let num = NaN ;
+           while (isNaN(num)) {
+               num = parseInt(prompt(`Nhập phần tử thứ ${i +1}:`));
+               if (isNaN(num)) {
+                   alert("Vui lòng nhập số hợp lệ !")
+               }
+           }
+           arr.push(num);
+       }
+       console.log("mảng đã nhập");
+       let sum = 0;
+       let count = 0;
+       arr.forEach((value) => {
+           if (value % 3 === 0) {
+              sum+= value;
+              count++;
+           }
+    });
+       if (count > 0 ) {
+           const average = sum / count;
+           console.log ('Trung bình cộng của các số chia hết cho 3 là : ' + average );
+       }else {
+           console.log ('Không có số nào chia hết cho 3 trong mảng.');
+       }
+    }
+</script>
+</body>
+</html>
